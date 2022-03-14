@@ -1,11 +1,13 @@
-<h1>Places</h1>
+<% if @current_user %>
+  <h1>Places</h1>
 
-<ul>
-  <% for place in @places %>
-    <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
+  <ul>
+    <% for place in @places %>
+      <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
+    <% end %>
+  </ul>
+
+  <p>
+    <a href="/places/new">New place</a>
+  </p>
   <% end %>
-</ul>
-
-<p>
-  <a href="/places/new">New place</a>
-</p>
