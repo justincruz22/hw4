@@ -1,20 +1,22 @@
-<h1><%= @place.name %></h1>
+<div class="row">
+      <div class="col-sm-7">
+        <h1><%= @place.name %></h1>
+      </div>
+      <div class="col-sm-2 text-end">
+        <a href="/posts/new/" class="btn btn-success">New Post</a>
+      </div>
+      <div class="col-sm-3 text-end">
+        <a href="/places" class="btn btn-success">Back to All Places</a>
+      </div>
+    </div>
 
-<h2>My Posts</h2>
 <div class="row">
   <% for post in @place.posts.where({user_id: @current_user.id}) %>
   <div class="col-3">
     <h3><%= post.title %></h3>
     <h4><%= post.posted_on %></h4>
     <p><%= post.description %></p>
+    <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
   <% end %>
-  
 
-  <p>
-    <a href="/posts/new?place_id=<%= @place.id %>">New Post</a>
-  </p>
-
-  <p>
-    <a href="/places">Back to All Places</a>
-  </p>
 </div>
