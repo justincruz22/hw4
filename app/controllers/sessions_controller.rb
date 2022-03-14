@@ -11,11 +11,11 @@ class SessionsController < ApplicationController
         session["user_id"] = @user.id
         redirect_to "/"
       else
-        flash[:notice] = "Sorry, not today!"
+        flash[:notice] = "Your email and password combination does not match an account in our records. Please try again."
         redirect_to "/sessions/new"
       end
     else
-      flash[:notice] = "Sorry, not today!"
+      flash[:notice] = "Your email and password combination does not match an account in our records. Please try again."
       redirect_to "/sessions/new"
     end
   end
